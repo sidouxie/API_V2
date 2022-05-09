@@ -38,38 +38,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var client_1 = require("@prisma/client");
 var prisma = new client_1.PrismaClient();
-//Add new post
-function addPost(req, res) {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, title, slug, newPost, error_1;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    _b.trys.push([0, 2, , 3]);
-                    _a = req.body, title = _a.title, slug = _a.slug;
-                    return [4 /*yield*/, prisma.post.create({
-                            data: {
-                                title: title,
-                                slug: slug
-                            }
-                        })];
-                case 1:
-                    newPost = _b.sent();
-                    res.status(201).json(newPost);
-                    return [3 /*break*/, 3];
-                case 2:
-                    error_1 = _b.sent();
-                    res.status(400).json({ message: error_1 });
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
-            }
-        });
-    });
-}
 //Get All Post
 function getPosts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var getPost, error_2;
+        var getPost, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -80,8 +52,8 @@ function getPosts(req, res) {
                     res.status(200).json(getPost);
                     return [3 /*break*/, 3];
                 case 2:
-                    error_2 = _a.sent();
-                    res.status(400).json({ message: error_2 });
+                    error_1 = _a.sent();
+                    res.status(400).json({ message: error_1 });
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -89,7 +61,6 @@ function getPosts(req, res) {
     });
 }
 module.exports = {
-    addPost: addPost,
     getPosts: getPosts
 };
 //# sourceMappingURL=postController.js.map
